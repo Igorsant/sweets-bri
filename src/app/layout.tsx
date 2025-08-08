@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,44 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header>
+          <nav>
+            <ul className="flex relative p-5 gap-x-10 justify-center">
+              <li className="absolute -left-7 top-2">
+                <Image
+                  width={100}
+                  height={100}
+                  alt="logo image"
+                  src="/brigadeiro.png"
+                ></Image>
+              </li>
+              <li className="absolute left-10">
+                <Image
+                  width={100}
+                  height={100}
+                  alt="logo sweets bri"
+                  src="/sweets-bri.png"
+                />
+              </li>
+              <li>
+                <a href="">VALENTINE'S DAY</a>
+              </li>
+              <li>
+                <a href="">FLAVORS</a>
+              </li>
+              <li>
+                <a href="">CONTACT</a>
+              </li>
+              <li>
+                <a href="">ABOUT US</a>
+              </li>
+            </ul>
+          </nav>
+          <div className="bg-black text-white text-center py-2">
+            WE OFFER DELIVERY
+          </div>
+        </header>
+        <main>{children}</main>
       </body>
     </html>
   );
