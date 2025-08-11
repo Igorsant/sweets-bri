@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import backgroundHero from "./assets/background-hero.png"
-import bigBrigadeiro from "./assets/big-brigadeiro.png"
-import brigadeiroItem from "./assets/brigadeiro-item.png"
-import brigadeiroLogo from "./assets/brigadeiro-logo.png"
-import sweetsBri from "./assets/sweets-bri.png"
+import backgroundHero from "./assets/background-hero.png";
+import bigBrigadeiro from "./assets/big-brigadeiro.png";
+import brigadeiroItem from "./assets/brigadeiro-item.png";
+import brigadeiroLogo from "./assets/brigadeiro-logo.png";
+import sweetsBri from "./assets/sweets-bri.png";
+import bucket from "./assets/bucket.png";
 
 export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -239,15 +240,34 @@ export default function App() {
       </section>
 
       {/** Our Prices */}
-      <section className="bg-gradient-to-b from-[#B95BC6] to-[#744B93] p-10">
+      <section className="bg-gradient-to-b from-[#B95BC6] to-[#744B93] p-10 overflow-hidden">
         <div className="flex text-white justify-between items-center">
           <h1 className="text-7xl">Our Prices</h1>
-          <a
-            href=""
-            className="bg-[#32BBB0] rounded-xl py-3 px-7 text-2xl"
-          >
+          <a href="" className="bg-[#32BBB0] rounded-xl py-3 px-7 text-2xl">
             All products
           </a>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+          {[0, 1, 2, 3, 4, 5, 6].map((item) => (
+            <div
+              key={item}
+              className="relative max-w-80 rounded-lg bg-gradient-to-b from-[#63E8E9] to-[#5BE3D7] mt-30"
+            >
+              <img 
+                src={bucket}
+                alt="bucket" 
+                className="max-w-[300px] max-h-[250px] absolute -top-24 left-1/2 transform -translate-x-1/2 object-contain flex-shrink-0" 
+              />
+              <div className="text-[#9C1C89] pt-32 pl-3 pb-4">
+                <h4 className="text-xl"><b>SMALL TRAY</b></h4>
+                <p><b>1 flavor</b> of bri</p>
+              </div>
+              <div className="bg-[#241436] rounded-b-lg text-white flex justify-between p-3">
+                <h4 className="text-xl">20 UNITS</h4>
+                <h4 className="text-xl">$ 35</h4>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </>
