@@ -1,7 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import backgroundHero from "./assets/background-hero.png"
+import bigBrigadeiro from "./assets/big-brigadeiro.png"
+import brigadeiroItem from "./assets/brigadeiro-item.png"
+import brigadeiroLogo from "./assets/brigadeiro-logo.png"
+import sweetsBri from "./assets/sweets-bri.png"
 
 export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  const slidePercentage = isMobile ? 50 : 25; // 50% for mobile (2 items), 25% for desktop (4 items)
 
   const carouselItems = [
     { id: 1, name: "Classic Brigadeiro", image: "/brigadeiro-1.jpg" },
@@ -33,7 +52,7 @@ export default function App() {
                 width={100}
                 height={100}
                 alt="logo image"
-                src="/brigadeiro.png"
+                src={brigadeiroLogo}
               />
             </li>
             <li className="absolute left-10">
@@ -41,7 +60,7 @@ export default function App() {
                 width={100}
                 height={100}
                 alt="logo sweets bri"
-                src="/sweets-bri.png"
+                src={sweetsBri}
               />
             </li>
             <li>
@@ -64,13 +83,13 @@ export default function App() {
       </header>
       <section className="relative bg-cover bg-center bg-gradient-to-r from-[#964EA0] to-[#823666] text-white pb-60">
         <img
-          className="absolute w-full h-full object-cover z-0"
-          src="/image 8.png"
+          className="absolute w-full h-full object-cover"
+          src={backgroundHero}
           alt="background image"
         />
         <img
-          className="absolute bottom-0 right-0 z-10"
-          src="/image 11.png"
+          className="absolute bottom-0 right-0"
+          src={bigBrigadeiro}
           width={700}
           height={700}
           alt="background brigadeiro"
@@ -87,10 +106,16 @@ export default function App() {
             US. Let's make a sweeter country together!
           </p>
           <div className="flex gap-x-5 mt-10 mx-10">
-            <a className="bg-teal-500 rounded-lg py-2 px-7 font-bold text-2xl flex items-center">
+            <a
+              href=""
+              className="bg-teal-500 rounded-lg py-2 px-7 font-bold text-2xl flex items-center"
+            >
               Explore our Flavors
             </a>
-            <a className="border-3 border-teal-200 text-teal-200 rounded-lg py-2 px-7 font-bold text-2xl flex items-center">
+            <a
+              href=""
+              className="border-3 border-teal-200 text-teal-200 rounded-lg py-2 px-7 font-bold text-2xl flex items-center"
+            >
               Contact Us
             </a>
           </div>
@@ -98,12 +123,8 @@ export default function App() {
       </section>
 
       {/* Carousel Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="-mt-32 bg-transparent">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-            Our Flavors
-          </h2>
-
           <div className="relative">
             {/* Arrow Buttons */}
             <button
@@ -145,26 +166,33 @@ export default function App() {
             </button>
 
             {/* Carousel Container */}
-            <div className="overflow-hidden mx-12 pb-3">
+            <div className="overflow-hidden mx-12 pb-3 pt-16">
               <div
                 className="flex transition-transform duration-300 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+                style={{
+                  transform: `translateX(-${currentIndex * slidePercentage}%)`,
+                }}
               >
                 {carouselItems.map((item, _index) => (
-                  <div key={item.id} className="w-1/4 flex-shrink-0 px-2">
-                    <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                      <div className="h-48 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
-                        <span className="text-white font-bold text-lg">
-                          {item.name}
-                        </span>
-                      </div>
-                      <div className="p-4">
-                        <h3 className="font-semibold text-gray-800">
-                          {item.name}
-                        </h3>
-                        <p className="text-gray-600 text-sm mt-1">
-                          Delicious Brazilian sweet
-                        </p>
+                  <div
+                    key={item.id}
+                    className="md:w-1/4 w-1/2 flex-shrink-0 px-2"
+                  >
+                    <div className="bg-gradient-to-b from-[#71EAEB] to-[#17CBB6] rounded-3xl shadow-md pb-10">
+                      <div className="relative text-[#662361]">
+                        <img
+                          src={brigadeiroItem}
+                          alt=""
+                          className="absolute -top-15 left-1/2 -translate-x-1/2"
+                        />
+                        <div className="flex flex-col items-center">
+                          <h4 className="mt-42 font-medium">MILK CHOCOLATE</h4>
+                          <p className="mt-1 text-center">
+                            <b>Ingredients:</b> condensed milk, mix chocolate
+                            powder, dark chocolate, butter, and chocolate
+                            sprinkles
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -173,18 +201,53 @@ export default function App() {
             </div>
 
             {/* Dots Indicator */}
-            <div className="flex justify-center mt-6 space-x-2 border border-red-500">
+            <div className="flex justify-center mt-6 space-x-2">
               {carouselItems.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex ? "bg-purple-600" : "bg-gray-300"
+                    index === currentIndex ? "bg-[#17CBB6]" : "bg-gray-300"
                   }`}
                 />
               ))}
             </div>
           </div>
+
+          {/** Contact Us */}
+          <div className="text-white flex justify-center my-20">
+            <a
+              href=""
+              className="bg-[#32BBB0] py-3 px-7 rounded-xl text-2xl flex items-center gap-x-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 27 27"
+                fill="none"
+              >
+                <path
+                  d="M3 13C3 7.4875 7.4875 3 13 3C18.5125 3 23 7.4875 23 13C23 14.475 22.675 15.925 22.025 17.2875C21.8625 17.625 21.7875 17.9875 21.7875 18.3625C21.7875 18.6 21.825 18.8375 21.8875 19.0625L23.0625 23.0625L19.0625 21.8875C18.475 21.7125 17.8375 21.7625 17.2875 22.025C15.925 22.675 14.475 23 13 23C7.4875 23 3 18.5125 3 13ZM0.5 13C0.5 19.9 6.1 25.5 13 25.5C14.925 25.5 16.725 25.05 18.3625 24.2875L26.75 26.75L24.2875 18.3625C25.05 16.725 25.5 14.925 25.5 13C25.5 6.1 19.9 0.499998 13 0.499998C6.1 0.499998 0.5 6.1 0.5 13Z"
+                  fill="white"
+                />
+              </svg>
+              <span>Contact Us</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/** Our Prices */}
+      <section className="bg-gradient-to-b from-[#B95BC6] to-[#744B93] p-10">
+        <div className="flex text-white justify-between items-center">
+          <h1 className="text-7xl">Our Prices</h1>
+          <a
+            href=""
+            className="bg-[#32BBB0] rounded-xl py-3 px-7 text-2xl"
+          >
+            All products
+          </a>
         </div>
       </section>
     </>
