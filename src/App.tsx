@@ -88,7 +88,7 @@ export default function App() {
             </li>
           </ul>
         </nav>
-        <div className="bg-black text-white text-center py-2">
+        <div className="bg-black text-white text-center py-2 tracking-wide">
           WE OFFER DELIVERY
         </div>
       </header>
