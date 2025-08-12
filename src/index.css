@@ -1,1 +1,48 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'istok-web';
+  src: url('./assets/fonts/IstokWeb-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'inter';
+  src: url('./assets/fonts/Inter_28pt-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'inter';
+  src: url('./assets/fonts/Inter_28pt-SemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: url('./assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: url('./assets/fonts/Roboto-SemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: url('./assets/fonts/Roboto-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'rum-raisin';
+  src: url('./assets/fonts/RumRaisin-Regular.ttf');
+}
+
+@theme {
+  --font-istok: "istok-web";
+  --font-inter: "inter";
+  --font-roboto: "roboto";
+  --font-rum-raisin: "rum-raisin";
+}

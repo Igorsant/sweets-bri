@@ -45,36 +45,46 @@ export default function App() {
 
   return (
     <>
-      <header>
+      <header className="font-istok">
         <nav>
-          <ul className="flex relative p-5 gap-x-10 justify-center">
+          <ul className="font-istok text-[#5E5E5E] flex relative p-5 gap-x-10 justify-center">
             <li className="absolute -left-7 top-2">
-              <img
-                width={100}
-                height={100}
-                alt="logo image"
-                src={brigadeiroLogo}
-              />
+              <a href="">
+                <img
+                  width={100}
+                  height={100}
+                  alt="logo image"
+                  src={brigadeiroLogo}
+                />
+              </a>
             </li>
             <li className="absolute left-10">
-              <img
-                width={100}
-                height={100}
-                alt="logo sweets bri"
-                src={sweetsBri}
-              />
+              <a href="">
+                <img
+                  width={100}
+                  height={100}
+                  alt="logo sweets bri"
+                  src={sweetsBri}
+                />
+              </a>
             </li>
-            <li>
+            <li className="hover:text-purple-400">
               <a href="">VALENTINE'S DAY</a>
             </li>
             <li>
-              <a href="">FLAVORS</a>
+              <a href="" className="hover:text-purple-400">
+                FLAVORS
+              </a>
             </li>
             <li>
-              <a href="">CONTACT</a>
+              <a href="" className="hover:text-purple-400">
+                CONTACT
+              </a>
             </li>
             <li>
-              <a href="">ABOUT US</a>
+              <a href="" className="hover:text-purple-400">
+                ABOUT US
+              </a>
             </li>
           </ul>
         </nav>
@@ -96,26 +106,26 @@ export default function App() {
           alt="background brigadeiro"
         />
         <div className="relative z-20">
-          <h1 className="text-7xl font-semibold pt-15 mx-10 max-w-300">
+          <h1 className="font-inter text-7xl font-semibold pt-15 mx-10 max-w-300">
             Bringing the amazing
             <br /> brigadeiros to Indianapolis
           </h1>
-          <p className="max-w-120 mx-10 mt-5">
+          <p className="font-roboto max-w-120 mx-10 mt-5">
             That's right, Brigadeiros! I know, it is hard to read and say that
             out loud. Can we just call them Sweets Bri? Of course! Sweets Bri
             are candies originally from Brazil and are making their way to the
             US. Let's make a sweeter country together!
           </p>
-          <div className="flex gap-x-5 mt-10 mx-10">
+          <div className="font-rum-raisin flex gap-x-5 mt-10 mx-10">
             <a
               href=""
-              className="bg-teal-500 rounded-lg py-2 px-7 font-bold text-2xl flex items-center"
+              className="bg-teal-500 rounded-lg py-2 px-7 text-2xl flex items-center hover:bg-teal-400 transition-colors"
             >
               Explore our Flavors
             </a>
             <a
               href=""
-              className="border-3 border-teal-200 text-teal-200 rounded-lg py-2 px-7 font-bold text-2xl flex items-center"
+              className="border-3 border-teal-200 text-teal-200 rounded-lg py-2 px-7 text-2xl flex items-center hover:text-white hover:bg-teal-500 hover:border-teal-500 transition-colors"
             >
               Contact Us
             </a>
@@ -187,9 +197,9 @@ export default function App() {
                           className="absolute -top-15 left-1/2 -translate-x-1/2"
                         />
                         <div className="flex flex-col items-center">
-                          <h4 className="mt-42 font-medium">MILK CHOCOLATE</h4>
-                          <p className="mt-1 text-center">
-                            <b>Ingredients:</b> condensed milk, mix chocolate
+                          <h4 className="mt-42 font-rum-raisin text-xl">MILK CHOCOLATE</h4>
+                          <p className="mt-1 text-center font-roboto px-3">
+                            <span className="font-semibold">Ingredients:</span> condensed milk, mix chocolate
                             powder, dark chocolate, butter, and chocolate
                             sprinkles
                           </p>
@@ -233,7 +243,7 @@ export default function App() {
                   fill="white"
                 />
               </svg>
-              <span>Contact Us</span>
+              <span className="font-rum-raisin">Contact Us</span>
             </a>
           </div>
         </div>
@@ -241,7 +251,7 @@ export default function App() {
 
       {/** Our Prices */}
       <section className="bg-gradient-to-b from-[#B95BC6] to-[#744B93] p-10 overflow-hidden">
-        <div className="flex text-white justify-between items-center">
+        <div className="flex text-white justify-between items-center font-rum-raisin">
           <h1 className="text-7xl">Our Prices</h1>
           <a href="" className="bg-[#32BBB0] rounded-xl py-3 px-7 text-2xl">
             All products
@@ -253,18 +263,22 @@ export default function App() {
               key={item}
               className="relative max-w-80 rounded-lg bg-gradient-to-b from-[#63E8E9] to-[#5BE3D7] mt-30"
             >
-              <img 
+              <img
                 src={bucket}
-                alt="bucket" 
-                className="max-w-[300px] max-h-[250px] absolute -top-24 left-1/2 transform -translate-x-1/2 object-contain flex-shrink-0" 
+                alt="bucket"
+                className="max-w-[300px] max-h-[250px] absolute -top-24 left-1/2 transform -translate-x-1/2 object-contain flex-shrink-0"
               />
               <div className="text-[#9C1C89] pt-32 pl-3 pb-4">
-                <h4 className="text-xl"><b>SMALL TRAY</b></h4>
-                <p><b>1 flavor</b> of bri</p>
+                <h4 className="text-2xl font-rum-raisin">
+                  SMALL TRAY
+                </h4>
+                <p className="font-roboto">
+                  <b>1 flavor</b> of bri
+                </p>
               </div>
-              <div className="bg-[#241436] rounded-b-lg text-white flex justify-between p-3">
+              <div className="bg-[#241436] rounded-b-lg text-white flex justify-between items-center p-3 font-rum-raisin">
                 <h4 className="text-xl">20 UNITS</h4>
-                <h4 className="text-xl">$ 35</h4>
+                <h4 className="text-4xl">$ 35</h4>
               </div>
             </div>
           ))}
