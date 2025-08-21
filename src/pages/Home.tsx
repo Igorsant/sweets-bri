@@ -209,29 +209,48 @@ export default function Home() {
             All products
           </a>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {[0, 1, 2, 3, 4, 5, 6].map((item) => (
-            <div
-              key={item}
-              className="relative max-w-80 rounded-lg bg-gradient-to-b from-[#63E8E9] to-[#5BE3D7] mt-30"
-            >
-              <img
-                src={bucket}
-                alt="bucket"
-                className="max-w-[300px] max-h-[250px] absolute -top-24 left-1/2 transform -translate-x-1/2 object-contain flex-shrink-0"
-              />
-              <div className="text-[#9C1C89] pt-32 pl-3 pb-4">
-                <h4 className="text-2xl font-rum-raisin">
-                  SMALL TRAY
-                </h4>
-                <p className="font-roboto">
-                  <b>1 flavor</b> of bri
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+          {[
+            {
+              name: "Small Tray",
+              description: "1 flavor of bri",
+              price: "$35",
+              units: "20 UNITS",
+              image: bucket
+            },
+            {
+              name: "Medium Tray",
+              description: "2 flavors of bri",
+              price: "$60",
+              units: "40 UNITS",
+              image: bucket
+            },
+            {
+              name: "Large Tray",
+              description: "3 flavors of bri",
+              price: "$85",
+              units: "60 UNITS",
+              image: bucket
+            },
+            {
+              name: "Party Box",
+              description: "Assorted flavors, perfect for events",
+              price: "$120",
+              units: "100 UNITS",
+              image: bucket
+            }
+          ].map((item, index) => (
+            <div key={index} className="bg-white rounded-lg p-6 shadow-lg relative flex flex-col justify-between">
+              <div className="w-full h-48 bg-gradient-to-br from-[#71EAEB] to-[#17CBB6] rounded-lg mb-4 flex items-center justify-center">
+                <img src={item.image} alt={item.name} className="h-32 object-contain" />
               </div>
-              <div className="bg-[#241436] rounded-b-lg text-white flex justify-between items-center p-3 font-rum-raisin">
-                <h4 className="text-xl">20 UNITS</h4>
-                <h4 className="text-4xl">$ 35</h4>
+              <h3 className="font-rum-raisin text-2xl font-semibold text-[#662361] mb-2 text-center">{item.name}</h3>
+              <p className="font-roboto text-gray-600 mb-2 text-center">{item.description}</p>
+              <div className="flex items-center justify-between mt-4">
+                <span className="font-rum-raisin text-xl text-[#662361]">{item.units}</span>
+                <span className="font-rum-raisin text-3xl font-bold text-[#662361]">{item.price}</span>
               </div>
+              <button className="bg-[#32BBB0] text-white px-6 py-2 rounded-lg font-rum-raisin mt-6 hover:bg-[#17CBB6] transition-colors">Order Now</button>
             </div>
           ))}
         </div>
