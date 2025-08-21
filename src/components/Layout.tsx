@@ -27,7 +27,6 @@ export default function Layout() {
                   width={40}
                   alt="logo image"
                   src={brigadeiroLogo}
-
                 />
               </Link>
               <Link to="/">
@@ -76,7 +75,6 @@ export default function Layout() {
                   width={40}
                   alt="logo image"
                   src={brigadeiroLogo}
-
                 />
               </Link>
               <Link to="/">
