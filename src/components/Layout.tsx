@@ -21,20 +21,17 @@ export default function Layout() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
             {/* Left Logo */}
-            <div className="flex items-center gap-4">
-              <Link to="/" className="flex items-center">
+            <div className="flex items-center gap-2">
+              <Link to="/">
                 <img
-                  width={100}
-                  height={100}
+                  width={40}
                   alt="logo image"
                   src={brigadeiroLogo}
-                  className=""
                 />
               </Link>
-              <Link to="/" className="flex items-center">
+              <Link to="/">
                 <img
                   width={100}
-                  height={100}
                   alt="logo sweets bri"
                   src={sweetsBri}
                 />
@@ -71,24 +68,20 @@ export default function Layout() {
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center justify-between px-4 py-3">
-            {/* Mobile Logo */}
+            {/* Left Logo */}
             <div className="flex items-center gap-2">
-              <Link to="/" className="flex items-center">
+              <Link to="/">
                 <img
                   width={40}
-                  height={40}
                   alt="logo image"
                   src={brigadeiroLogo}
-                  className="w-10 h-10"
                 />
               </Link>
-              <Link to="/" className="flex items-center">
+              <Link to="/">
                 <img
-                  width={60}
-                  height={40}
+                  width={100}
                   alt="logo sweets bri"
                   src={sweetsBri}
-                  className="w-15 h-10"
                 />
               </Link>
             </div>
